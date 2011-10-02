@@ -52,22 +52,16 @@ else if _app is "Finder" then
 	set the clipboard to filePath
 	set found to true
 	
-	--If Safari, get URL	
-else if _app is "Safari" then
-	tell application "Safari"
-		set theURL to (URL of front document as string)
-		--set thePageTitle to (name of front document as string)
-		set the clipboard to theURL
-		set found to true
-	end tell
-	--If Webkit, get URL
-else if _app is "WebKit" then
-	tell application "WebKit"
-		set theURL to (URL of front document as string)
-		--set thePageTitle to (name of front document as string)
-		set the clipboard to theURL
-		set found to true
-	end tell
+  	--If Safari or WebKit, get URL	
+else if _app is in {"Safari", "WebKit"} then
+	using terms from application "Safari"
+		tell application _app
+			set theURL to (URL of front document as string)
+			--set thePageTitle to (name of front document as string)
+			set the clipboard to theURL
+			set found to true
+		end tell
+	end using terms from
 	--If Chrome, get URL
 else if _app is "Google Chrome" then
 	tell application "Google Chrome"
