@@ -63,7 +63,7 @@ else if _app is in {"Safari", "WebKit"} then
 		end tell
 	end using terms from
 	--If Chrome, get URL
-else if _app is "Google Chrome" then
+else if _app is "Chrome" or _app is "Google Chrome" then
 	tell application "Google Chrome"
 		set theURL to (URL of active tab of first window)
 		set the clipboard to theURL
