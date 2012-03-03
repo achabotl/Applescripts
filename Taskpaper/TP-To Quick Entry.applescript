@@ -104,12 +104,13 @@ if found then
 		-- 
 		delay 0.3
 		keystroke _shortcutKey using _shortcutModifier
-		delay 0.1
-		keystroke return
+		delay 0.2
+		keystroke return using {command down, control down}
 		keystroke tab
 		keystroke "v" using command down
+		delay 0.2
 		key code {123, 126} using command down -- left and up
-		key code {124, 124} -- right twice
+		key code {124} using command down -- right
 	end tell
 	
 	-- EDIT: You may have to uncomment this block if the focus is not set to the Quick Entry panel.
