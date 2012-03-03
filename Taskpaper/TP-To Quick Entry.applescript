@@ -33,11 +33,11 @@ if _app is "Mail" then
 			set theItems to theMessage's message id
 			set theItems to text items of theItems
 			set AppleScript's text item delimiters to "%25"
-			set messageURL to theItems as text
+			set messageURL to theItems as rich text
 			set AppleScript's text item delimiters to tid
 			set messageURL to "message://%3C" & messageURL & "%3E"
 			# Edit this line with the items you want.
-			set the clipboard to theName & " â€” " & theSubject & "
+			set the clipboard to theName & " Ñ " & theSubject & "
 	" & messageURL
 			set found to true
 		end repeat
@@ -52,7 +52,7 @@ else if _app is "Finder" then
 	set the clipboard to filePath
 	set found to true
 	
-  	--If Safari or WebKit, get URL	
+	--If Safari or WebKit, get URL	
 else if _app is in {"Safari", "WebKit"} then
 	using terms from application "Safari"
 		tell application _app
